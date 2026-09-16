@@ -22,7 +22,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Dhruv Mahadik — GTM Operator & Founder",
+  title: "Dhruv Mahadik",
   description:
     "GTM operator and founder. Sold B2B SaaS to a Big 4 firm, industrial real estate to a clothing brand, and Delhi-style momo to hungry students. VC, defence tech, early-stage.",
   openGraph: {
