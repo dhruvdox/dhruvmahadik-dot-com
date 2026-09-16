@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { ShuffleText } from "./Primitives";
 
 export default function Hero() {
   const reduced = useReducedMotion();
@@ -29,11 +30,6 @@ export default function Hero() {
               "radial-gradient(58% 48% at 64% 30%, #8f1717 0%, #3a0c0c 38%, #150808 66%, #0e0e0e 100%)",
           }}
         />
-        <div className="absolute inset-0 z-[3] flex items-start justify-end px-6 pt-20 md:px-10 md:pt-24">
-          <span className="label text-white/20">
-            Hero photo / video — placeholder
-          </span>
-        </div>
       </div>
 
       <div className="relative z-10 w-full px-6 pb-8 md:px-10 md:pb-10">
@@ -53,8 +49,8 @@ export default function Hero() {
             className="fit-line flex justify-between"
             {...rise(0.25)}
           >
-            <span>This</span>
-            <span>Is</span>
+            <ShuffleText text="This" delay={0.4} duration={0.6} />
+            <ShuffleText text="Is" delay={0.5} duration={0.6} />
           </motion.span>
 
           <motion.span
@@ -66,24 +62,7 @@ export default function Hero() {
           </motion.span>
         </h1>
 
-        <motion.p
-          className="mt-7 max-w-md text-sm leading-relaxed text-white/60 md:mt-9"
-          {...rise(0.5)}
-        >
-          I find the inefficiency in a market and close the deal — enterprise
-          SaaS, commercial real estate, or momos outside a college gate.
-        </motion.p>
       </div>
-
-      <motion.div
-        className="relative z-10 flex items-center justify-between border-t border-white/10 px-6 py-4 md:px-10"
-        {...rise(0.65)}
-      >
-        <span className="label hidden text-white/40 sm:inline">Scroll</span>
-        <span className="label text-white/40">
-          VC · Defence Tech · Early Stage
-        </span>
-      </motion.div>
     </section>
   );
 }

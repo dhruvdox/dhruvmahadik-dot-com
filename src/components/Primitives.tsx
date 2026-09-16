@@ -2,6 +2,75 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import type { ReactNode } from "react";
+import { useEffect, useState } from "react";
+
+const SHUFFLE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+function scramble(text: string, revealCount: number) {
+  return text
+    .split("")
+    .map((char, i) =>
+      char === " " || i < revealCount
+        ? char
+        : SHUFFLE_CHARS[Math.floor(Math.random() * SHUFFLE_CHARS.length)]
+    )
+    .join("");
+}
+
+/**
+ * Scrambles through random characters before settling into the real text,
+ * left to right. Skips straight to the final text under reduced motion.
+ */
+export function ShuffleText({
+  text,
+  className = "",
+  delay = 0,
+  duration = 0.8,
+}: {
+  text: string;
+  className?: string;
+  delay?: number;
+  duration?: number;
+}) {
+  const reduced = useReducedMotion();
+  const [display, setDisplay] = useState(text);
+
+  useEffect(() => {
+    if (reduced) {
+      setDisplay(text);
+      return;
+    }
+
+    setDisplay(scramble(text, 0));
+    let tick: ReturnType<typeof setInterval> | undefined;
+
+    const start = setTimeout(() => {
+      const startTime = performance.now();
+      const totalMs = duration * 1000;
+
+      tick = setInterval(() => {
+        const progress = Math.min((performance.now() - startTime) / totalMs, 1);
+        setDisplay(scramble(text, Math.floor(progress * text.length)));
+
+        if (progress >= 1) {
+          setDisplay(text);
+          if (tick) clearInterval(tick);
+        }
+      }, 40);
+    }, delay * 1000);
+
+    return () => {
+      clearTimeout(start);
+      if (tick) clearInterval(tick);
+    };
+  }, [text, delay, duration, reduced]);
+
+  return (
+    <span className={className} aria-hidden="true">
+      {display}
+    </span>
+  );
+}
 
 /** Fade-and-rise on scroll into view. The site's only entrance motion. */
 export function Reveal({
