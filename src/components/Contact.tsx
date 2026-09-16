@@ -59,12 +59,7 @@ export default function Contact() {
                 >
                   LinkedIn ↗
                 </a>
-                <a
-                  href="tel:+919633423111"
-                  className="label text-white/60 transition-colors hover:text-red-brand"
-                >
-                  +91 96334 23111
-                </a>
+                
               </div>
             </Reveal>
           </div>

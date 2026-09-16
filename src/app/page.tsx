@@ -6,6 +6,7 @@ import Music from "@/components/Music";
 import Nav from "@/components/Nav";
 import OffTheClock from "@/components/OffTheClock";
 import { DiagonalRule } from "@/components/Primitives";
+import ShortFilm from "@/components/ShortFilm";
 import Ventures from "@/components/Ventures";
 import Work from "@/components/Work";
 
@@ -26,8 +27,9 @@ export default function Home() {
         <Work />
         <Credentials />
         <Music />
+        <ShortFilm />
 
-        {/* Motif use 2 of 3 — cools the page back down after the music. */}
+        {/* Motif use 2 of 3 — cools the page back down after the music and film. */}
         <div className="bg-paper">
           <DiagonalRule tone="ink" />
         </div>

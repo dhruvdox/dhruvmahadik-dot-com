@@ -56,10 +56,24 @@ export default function Work() {
                   <h3 className="display text-2xl text-white transition-colors duration-300 group-hover:text-red-brand md:text-3xl">
                     {role.company}
                   </h3>
-                  <p className="accent mt-2 text-lg italic text-white/55">
+                  <p className="accent mt-2 text-lg text-white/55">
                     {role.role}
                   </p>
-                  <p className="label mt-3 text-white/30">{role.place}</p>
+                  <p className="label mt-3 flex items-center gap-1.5 text-white/30">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="h-3 w-3 shrink-0"
+                      aria-hidden="true"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        clipRule="evenodd"
+                        d="M12 21s-7-6.1-7-11.5a7 7 0 0 1 14 0C19 14.9 12 21 12 21zm0-9.25a2.25 2.25 0 1 0 0-4.5 2.25 2.25 0 0 0 0 4.5z"
+                      />
+                    </svg>
+                    {role.place}
+                  </p>
                 </div>
 
                 <p className="leading-[1.7] text-white/70 md:col-span-5">

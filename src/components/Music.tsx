@@ -1,4 +1,5 @@
-import { PhotoPlaceholder, Reveal, SectionTitle } from "./Primitives";
+import Image from "next/image";
+import { Reveal, SectionTitle } from "./Primitives";
 
 export default function Music() {
   return (
@@ -41,11 +42,15 @@ export default function Music() {
             </Reveal>
 
             <Reveal delay={0.2}>
-              <PhotoPlaceholder
-                label="Performance photo / clip"
-                duotone
-                className="mt-10 aspect-[3/2]"
-              />
+              <div className="relative mt-10 aspect-square overflow-hidden rounded-lg">
+                <Image
+                  src="/images/breaking-coffins.jpg"
+                  alt="Breaking Coffins mixtape cover"
+                  fill
+                  sizes="(min-width: 1024px) 42vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
             </Reveal>
           </div>
 

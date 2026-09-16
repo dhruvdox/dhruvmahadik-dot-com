@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {
   PhotoPlaceholder,
   Reveal,
@@ -13,19 +14,12 @@ type Venture = {
   statLabel: string;
   outcome: string;
   photo: string;
+  photoSrc?: string;
+  photoFit?: "cover" | "contain";
+  mapsUrl?: string;
 };
 
 const VENTURES: Venture[] = [
-  {
-    name: "Steam Engine",
-    role: "Chief Everything Officer",
-    period: "Bengaluru",
-    stat: "₹1L+",
-    statLabel: "Monthly revenue",
-    outcome:
-      "Parked a momo truck outside the college I’d just dropped out of and ran every part of it — menu, supply, staff, queue. Scaled past ₹1 lakh a month until a construction project took the spot and I shut it down.",
-    photo: "Steam Engine truck — photo",
-  },
   {
     name: "Marsera India",
     role: "Founder & MD",
@@ -35,16 +29,20 @@ const VENTURES: Venture[] = [
     outcome:
       "Started as a side project and found paying customers across five cities inside two months — no team, no budget, just outreach that worked.",
     photo: "Marsera India — photo",
+    photoSrc: "/images/marsera.png",
+    photoFit: "contain",
   },
   {
-    name: "The Hackathon",
-    role: "A fashion hackathon, week one of college",
-    period: "Aug 2025",
-    stat: "Balenciaga",
-    statLabel: "Partnered, at 17",
+    name: "Steam Engine",
+    role: "Chief Everything Officer",
+    period: "Bengaluru",
+    stat: "₹1L+",
+    statLabel: "Monthly revenue",
     outcome:
-      "Ran a hackathon for fashion designers in my first week of college. Landed Balenciaga as a partner and drew designers from NID Chennai and Swinburne. It barely made money — it did get me invited to lecture a post-graduate design class at seventeen.",
-    photo: "Hackathon / guest lecture — photo",
+      "Parked a momo truck outside the college I’d just dropped out of and ran every part of it — menu, supply, staff, queue. Scaled past ₹1 lakh a month until a construction project took the spot and I shut it down.",
+    photo: "Steam Engine truck — photo",
+    photoSrc: "/images/steam-engine.jpg",
+    mapsUrl: "https://maps.app.goo.gl/1svNPZFSHVGfCkVMA",
   },
 ];
 
@@ -67,13 +65,46 @@ export default function Ventures() {
                 i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""
               }`}
             >
-              <PhotoPlaceholder
-                label={venture.photo}
-                className="aspect-[4/3] lg:col-span-6"
-              />
+              {venture.photoSrc ? (
+                <div
+                  className={`relative aspect-[4/3] overflow-hidden lg:col-span-6 ${
+                    venture.photoFit === "contain" ? "bg-ink/5" : ""
+                  }`}
+                >
+                  <Image
+                    src={venture.photoSrc}
+                    alt={venture.photo}
+                    fill
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    className={
+                      venture.photoFit === "contain"
+                        ? "object-contain"
+                        : "object-cover"
+                    }
+                  />
+                </div>
+              ) : (
+                <PhotoPlaceholder
+                  label={venture.photo}
+                  className="aspect-[4/3] lg:col-span-6"
+                />
+              )}
 
               <div className="flex flex-col justify-center lg:col-span-6">
-                <p className="label mb-4 text-ink/45">{venture.period}</p>
+                <p className="label mb-4 text-ink/45">
+                  {venture.mapsUrl ? (
+                    <a
+                      href={venture.mapsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline decoration-ink/25 underline-offset-4 transition-colors hover:text-red-brand hover:decoration-red-brand"
+                    >
+                      {venture.period}
+                    </a>
+                  ) : (
+                    venture.period
+                  )}
+                </p>
 
                 <h3 className="display text-[10vw] leading-[0.9] text-ink sm:text-5xl lg:text-6xl">
                   {venture.name}
