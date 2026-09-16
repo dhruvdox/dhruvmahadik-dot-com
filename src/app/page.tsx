@@ -1,0 +1,40 @@
+import About from "@/components/About";
+import Contact from "@/components/Contact";
+import Credentials from "@/components/Credentials";
+import Hero from "@/components/Hero";
+import Music from "@/components/Music";
+import Nav from "@/components/Nav";
+import OffTheClock from "@/components/OffTheClock";
+import { DiagonalRule } from "@/components/Primitives";
+import Ventures from "@/components/Ventures";
+import Work from "@/components/Work";
+
+export default function Home() {
+  return (
+    <>
+      <Nav />
+      <main>
+        <Hero />
+        <About />
+
+        {/* Motif use 1 of 3 — hands off from the intro to the proof. */}
+        <div className="bg-paper">
+          <DiagonalRule tone="red" />
+        </div>
+
+        <Ventures />
+        <Work />
+        <Credentials />
+        <Music />
+
+        {/* Motif use 2 of 3 — cools the page back down after the music. */}
+        <div className="bg-paper">
+          <DiagonalRule tone="ink" />
+        </div>
+
+        <OffTheClock />
+        <Contact />
+      </main>
+    </>
+  );
+}

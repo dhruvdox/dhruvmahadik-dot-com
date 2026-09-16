@@ -1,0 +1,139 @@
+@import "tailwindcss";
+
+@theme {
+  --color-red-brand: #b91c1c;
+  --color-red-deep: #a11d1d;
+  --color-near-black: #0e0e0e;
+  --color-paper: #f4f0e8;
+  --color-ink: #141414;
+
+  --font-display: var(--font-archivo-black), "Arial Black", sans-serif;
+  --font-serif-accent: var(--font-fraunces), Georgia, serif;
+  --font-body: var(--font-inter), system-ui, sans-serif;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-near-black);
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ---- Type utilities ---- */
+
+.display {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 0.86;
+}
+
+/*
+ * Hero headline fit. "DHRUV MAHADIK" in Archivo Black at this tracking measures
+ * 9.26em wide, so sizing off the available width (viewport minus gutters) puts
+ * the line edge-to-edge at every viewport instead of overflowing wide screens.
+ */
+.fit-line {
+  font-size: calc((100vw - 3rem) / 9.4);
+  line-height: 0.84;
+}
+
+@media (min-width: 768px) {
+  .fit-line {
+    font-size: calc((100vw - 5rem) / 9.4);
+  }
+}
+
+/*
+ * The email is a single unbreakable token, so its min-content width sets the
+ * floor for its whole column. Sized in vw to stay on one line without forcing
+ * the grid wider than the viewport.
+ */
+.fit-email {
+  font-size: 5.2vw;
+}
+
+@media (min-width: 1024px) {
+  .fit-email {
+    font-size: min(2.6vw, 2.5rem);
+  }
+}
+
+.label {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.6875rem;
+  line-height: 1;
+}
+
+.accent {
+  font-family: var(--font-serif-accent);
+  text-transform: none;
+  letter-spacing: -0.02em;
+  font-weight: 300;
+}
+
+/* ---- Duotone photo treatment (red over near-black) ---- */
+
+.duotone {
+  filter: grayscale(1) contrast(1.25) brightness(0.72);
+}
+
+.duotone-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--color-red-brand);
+  mix-blend-mode: color;
+  pointer-events: none;
+}
+
+.duotone-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: radial-gradient(
+      120% 90% at 65% 30%,
+      rgba(185, 28, 28, 0.15) 0%,
+      rgba(14, 14, 14, 0.55) 60%,
+      rgba(14, 14, 14, 0.92) 100%
+    );
+  pointer-events: none;
+}
+
+/* ---- Placeholder texture for un-supplied imagery ---- */
+
+.placeholder-grid {
+  background-color: #1a0d0d;
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      rgba(185, 28, 28, 0.16) 0px,
+      rgba(185, 28, 28, 0.16) 1px,
+      transparent 1px,
+      transparent 11px
+    );
+}
+
+::selection {
+  background: var(--color-red-brand);
+  color: #fff;
+}
