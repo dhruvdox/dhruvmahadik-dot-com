@@ -45,8 +45,11 @@ export default function Work() {
 
       <ul className="mt-16 md:mt-24">
         {ROLES.map((role, i) => (
-          <Reveal key={role.company} delay={i * 0.06}>
-            <li className="group border-t border-white/15 py-8 last:border-b md:py-10">
+          <li
+            key={role.company}
+            className="group border-t border-white/15 last:border-b"
+          >
+            <Reveal delay={i * 0.06} className="py-8 md:py-10">
               <div className="grid gap-4 md:grid-cols-12 md:items-baseline md:gap-8">
                 <p className="label text-white/40 md:col-span-3">
                   {role.period}
@@ -80,8 +83,8 @@ export default function Work() {
                   {role.note}
                 </p>
               </div>
-            </li>
-          </Reveal>
+            </Reveal>
+          </li>
         ))}
       </ul>
 

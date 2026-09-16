@@ -59,7 +59,6 @@ export default function Contact() {
                 >
                   LinkedIn ↗
                 </a>
-                
               </div>
             </Reveal>
           </div>

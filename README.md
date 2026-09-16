@@ -23,28 +23,38 @@ per section title), **Inter** (body). Loaded via `next/font/google`.
 Shared primitives are in [`src/components/Primitives.tsx`](src/components/Primitives.tsx):
 `Reveal`, `DiagonalRule`, `SectionTitle`, `Section`, `PhotoPlaceholder`.
 
-The diagonal motif is used exactly twice — after About, and after Music.
+The diagonal motif is used exactly twice — after About, and after the short film.
+
+```bash
+npm run typecheck   # TypeScript check without building
+```
 
 ## Section order
 
-Hero → Who I Am → Ventures → Work → Credentials → Music → Off the Clock → Contact.
+Hero → Who I Am → Ventures → Work → Credentials → Music → Short Film → Off the Clock → Contact.
 Composed in [`src/app/page.tsx`](src/app/page.tsx).
 
-## Image slots still to fill
+## Images
 
-Every one is a `<PhotoPlaceholder>` labelled with what belongs there. Replace the
-component with `next/image` at the same aspect ratio; `duotone` slots keep their
-treatment via the `.duotone` / `.duotone-wrap` classes.
+All site images live in [`public/images/`](public/images/). Next.js resizes and
+compresses them automatically, so full-resolution JPG/PNG files are fine.
 
-| Section | Slot |
-| --- | --- |
-| Hero | Full-bleed photo or looping video (duotone) |
-| Ventures | Steam Engine truck · Marsera India · Hackathon / guest lecture |
-| Music | Performance photo or clip (duotone) |
-| Off the Clock | Sailing · Kerala, horses |
+### Adding the Off the Clock photos (sailing, horses)
 
-The hero currently renders a duotone gradient stand-in. Drop the real asset into
-the same wrapper and the red/black treatment carries over unchanged.
+1. Put the photo in `public/images/`, e.g. `public/images/sailing.jpg`.
+2. In [`src/components/OffTheClock.tsx`](src/components/OffTheClock.tsx), type the
+   filename into that slot's `file` field:
+
+   ```ts
+   { file: "sailing.jpg", label: "Sailing", alt: "..." },
+   ```
+
+Leave `file` empty (`""`) and the slot shows a placeholder. Photos are cropped to a
+3:4 portrait frame, centred. Filenames are case-sensitive once deployed.
+
+The hero is an image-free gradient backdrop
+([`HeroBackdrop.tsx`](src/components/HeroBackdrop.tsx)). A photo or video can sit
+beneath it inside a `.duotone-wrap` to pick up the red/black treatment.
 
 ## Open questions for the client
 

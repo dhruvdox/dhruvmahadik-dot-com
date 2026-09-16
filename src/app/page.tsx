@@ -18,7 +18,7 @@ export default function Home() {
         <Hero />
         <About />
 
-        {/* Motif use 1 of 3 — hands off from the intro to the proof. */}
+        {/* Motif use 1 of 2 — hands off from the intro to the proof. */}
         <div className="bg-paper">
           <DiagonalRule tone="red" />
         </div>
@@ -29,7 +29,7 @@ export default function Home() {
         <Music />
         <ShortFilm />
 
-        {/* Motif use 2 of 3 — cools the page back down after the music and film. */}
+        {/* Motif use 2 of 2 — cools the page back down after the music and film. */}
         <div className="bg-paper">
           <DiagonalRule tone="ink" />
         </div>

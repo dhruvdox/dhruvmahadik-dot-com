@@ -28,7 +28,7 @@ const VENTURES: Venture[] = [
     statLabel: "Customers in under two months",
     outcome:
       "Started as a side project and found paying customers across five cities inside two months — no team, no budget, just outreach that worked.",
-    photo: "Marsera India — photo",
+    photo: "Marsera India logo",
     photoSrc: "/images/marsera.png",
     photoFit: "contain",
   },
@@ -40,7 +40,7 @@ const VENTURES: Venture[] = [
     statLabel: "Monthly revenue",
     outcome:
       "Parked a momo truck outside the college I’d just dropped out of and ran every part of it — menu, supply, staff, queue. Scaled past ₹1 lakh a month until a construction project took the spot and I shut it down.",
-    photo: "Steam Engine truck — photo",
+    photo: "The Steam Engine momo truck",
     photoSrc: "/images/steam-engine.jpg",
     mapsUrl: "https://maps.app.goo.gl/1svNPZFSHVGfCkVMA",
   },

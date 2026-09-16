@@ -20,13 +20,15 @@ export default function Credentials() {
 
         <dl className="grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4">
           {CREDENTIALS.map((item, i) => (
-            <Reveal key={item.stat} delay={i * 0.06}>
-              <div className="border-t border-white/30 pt-5">
-                <dt className="display text-4xl leading-none md:text-5xl">
-                  {item.stat}
-                </dt>
-                <dd className="label mt-3 text-white/70">{item.label}</dd>
-              </div>
+            <Reveal
+              key={item.stat}
+              delay={i * 0.06}
+              className="border-t border-white/30 pt-5"
+            >
+              <dt className="display text-4xl leading-none md:text-5xl">
+                {item.stat}
+              </dt>
+              <dd className="label mt-3 text-white/70">{item.label}</dd>
             </Reveal>
           ))}
         </dl>

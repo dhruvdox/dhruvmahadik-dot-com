@@ -98,7 +98,7 @@ export function Reveal({
 }
 
 /**
- * The recurring diagonal rule. Used sparingly — three times across the page —
+ * The recurring diagonal rule. Used sparingly — twice across the page —
  * as a section divider rather than decoration.
  */
 export function DiagonalRule({
