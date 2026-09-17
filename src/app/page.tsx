@@ -4,7 +4,6 @@ import Credentials from "@/components/Credentials";
 import Hero from "@/components/Hero";
 import Music from "@/components/Music";
 import Nav from "@/components/Nav";
-import OffTheClock from "@/components/OffTheClock";
 import { DiagonalRule } from "@/components/Primitives";
 import ShortFilm from "@/components/ShortFilm";
 import Ventures from "@/components/Ventures";
@@ -34,7 +33,6 @@ export default function Home() {
           <DiagonalRule tone="ink" />
         </div>
 
-        <OffTheClock />
         <Contact />
       </main>
     </>
