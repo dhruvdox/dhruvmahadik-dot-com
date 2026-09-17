@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Dhruv Mahadik — GTM Operator & Founder",
     description:
-      "GTM operator and founder. B2B SaaS, commercial real estate, and a momo truck — same trait, different markets.",
+      "GTM operator and founder. B2B SaaS, commercial real estate — same trait, different markets.",
     type: "website",
   },
 };
