@@ -29,8 +29,7 @@ const VENTURES: Venture[] = [
     outcome:
       "Started as a side project and found paying customers across five cities inside two months — no team, no budget, just outreach that worked.",
     photo: "Marsera India logo",
-    photoSrc: "/images/marsera.png",
-    photoFit: "contain",
+    photoSrc: "/images/marsera-1.jpeg",
   },
   {
     name: "Steam Engine",
